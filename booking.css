@@ -1,0 +1,131 @@
+/* French with Nelliane — booking system styles (shared by every page).
+   Uses the site's colour variables (--encre, --or, --ivoire, ...). */
+
+.bk-bg{position:fixed;inset:0;z-index:1000;background:rgba(10,21,36,.62);backdrop-filter:blur(7px);display:none;align-items:center;justify-content:center;padding:18px}
+.bk-bg.open{display:flex;animation:fadeIn .3s ease}
+.bk-modal{background:var(--ivoire);border-radius:22px;max-width:560px;width:100%;max-height:92vh;display:flex;flex-direction:column;box-shadow:var(--ombre);animation:pop .45s var(--ease);outline:none;overflow:hidden}
+
+.bk-head{padding:28px 34px 0;display:flex;justify-content:space-between;align-items:flex-start;flex:none}
+.bk-head h3{font-size:29px;color:var(--encre)}
+.bk-x{background:none;border:none;font-size:28px;cursor:pointer;color:var(--muet);line-height:1;padding:4px;margin:-4px}
+.bk-x:hover{color:var(--encre)}
+
+.bk-body{padding:14px 34px 18px;overflow-y:auto;flex:1 1 auto;-webkit-overflow-scrolling:touch}
+.bk-steps{display:flex;gap:6px;margin:12px 0 8px;padding:0;list-style:none}
+.bk-steps li{flex:1;height:4px;background:rgba(18,35,63,.12);border-radius:4px;transition:.3s}
+.bk-steps li.on{background:var(--or)}
+.bk-stepname{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muet);font-weight:600;margin:0 0 18px}
+
+.bk-panel h4{font-size:15px;font-weight:600;color:var(--charbon);margin-bottom:6px;outline:none}
+.bk-sub{font-size:13px;color:var(--muet);margin:0 0 16px}
+.bk-note{font-size:12.5px;color:var(--muet);margin:6px 0 0;line-height:1.55}
+
+/* Lesson cards */
+.bk-choice{display:flex;width:100%;align-items:center;justify-content:space-between;gap:14px;background:#fff;border:1.5px solid var(--ligne);border-radius:13px;padding:14px 18px;cursor:pointer;margin-bottom:10px;transition:.22s;text-align:left;font:inherit;color:inherit;min-height:66px}
+.bk-choice:hover{border-color:var(--or)}
+.bk-choice[aria-pressed="true"]{border-color:var(--encre);background:rgba(18,35,63,.04);box-shadow:inset 0 0 0 1px var(--encre)}
+.bk-choice b{display:block;color:var(--encre);font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;line-height:1.2}
+.bk-choice .bk-desc{font-size:13px;color:var(--muet)}
+.bk-cost{text-align:right;flex:none}
+.bk-cost strong{display:block;font-family:'Cormorant Garamond',serif;font-size:25px;color:var(--encre);line-height:1;font-weight:600;white-space:nowrap}
+.bk-cost strong.quote{font-size:17px}
+.bk-cost small{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--or);font-weight:600}
+
+/* Calendar */
+.bk-cal{background:#fff;border:1.5px solid var(--ligne);border-radius:14px;padding:14px}
+.bk-calhead{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+.bk-calhead strong{font-family:'Cormorant Garamond',serif;font-size:21px;color:var(--encre);text-transform:capitalize}
+.bk-navbtn{width:38px;height:38px;border-radius:50%;border:1.5px solid var(--ligne);background:#fff;color:var(--encre);cursor:pointer;font-size:19px;line-height:1;transition:.2s}
+.bk-navbtn:hover:not(:disabled){border-color:var(--or)}
+.bk-navbtn:disabled{opacity:.3;cursor:default}
+.bk-wd,.bk-days{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;text-align:center}
+.bk-wd span{font-size:11px;font-weight:600;letter-spacing:.06em;color:var(--muet);padding:4px 0}
+.bk-day{height:44px;border:none;border-radius:10px;background:transparent;font:500 14px 'Inter',sans-serif;color:var(--charbon);cursor:pointer;transition:.18s}
+.bk-day:hover:not(:disabled){background:rgba(194,154,75,.2)}
+.bk-day:disabled{color:rgba(114,106,89,.38);cursor:default}
+.bk-day.today{box-shadow:inset 0 0 0 1.5px var(--or)}
+.bk-day.sel{background:var(--encre);color:#fff;box-shadow:none;font-weight:600}
+.bk-picked{margin:12px 0 0;font-size:13.5px;color:var(--encre);font-weight:600}
+
+/* Time slots */
+.bk-slots{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.bk-slot{background:#fff;border:1.5px solid var(--ligne);border-radius:10px;padding:10px 6px;text-align:center;cursor:pointer;transition:.2s;min-height:54px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;font:inherit}
+.bk-slot b{font-family:'JetBrains Mono',monospace;font-size:14px;font-weight:600;color:var(--charbon)}
+.bk-slot small{font-size:11px;color:var(--muet)}
+.bk-slot:hover:not(:disabled){border-color:var(--or)}
+.bk-slot:disabled{opacity:.4;cursor:default}
+.bk-slot.sel{background:var(--encre);border-color:var(--encre)}
+.bk-slot.sel b,.bk-slot.sel small{color:#fff}
+.bk-empty{background:#fff;border:1.5px dashed var(--ligne);border-radius:12px;padding:18px;font-size:14px;color:var(--muet);text-align:center}
+
+/* Summary + success */
+.bk-sum{background:#fff;border:1px solid var(--ligne);border-radius:13px;padding:14px 18px;text-align:left;font-size:14px;margin:0 0 14px}
+.bk-sum div{display:flex;justify-content:space-between;padding:6px 0;color:var(--muet);gap:14px}
+.bk-sum div b{color:var(--charbon);text-align:right;font-weight:600;word-break:break-word}
+.bk-sum div.total{border-top:1px solid var(--ligne);margin-top:6px;padding-top:12px}
+.bk-sum div.total b{font-family:'Cormorant Garamond',serif;font-size:22px;color:var(--encre)}
+.bk-done{text-align:center;padding:14px 0 4px}
+.bk-check{width:70px;height:70px;border-radius:50%;background:linear-gradient(135deg,var(--or-vif),var(--or));color:var(--nuit);display:flex;align-items:center;justify-content:center;margin:0 auto 14px}
+.bk-done h3{font-size:27px;color:var(--encre);margin-bottom:6px}
+.bk-done p{font-size:14px;color:var(--muet);margin:0 0 12px}
+.bk-ref{display:inline-block;font-family:'JetBrains Mono',monospace;background:rgba(18,35,63,.06);padding:6px 12px;border-radius:8px;font-size:13px;color:var(--encre);margin-bottom:16px}
+.bk-actions{display:grid;gap:10px;margin-top:6px}
+.bk-actions .btn{justify-content:center;width:100%}
+.bk-status{font-size:13px;margin:12px 0 0;color:var(--muet)}
+
+/* Footer: running price + navigation (always visible) */
+.bk-foot{flex:none;border-top:1px solid var(--ligne);background:#fff;padding:14px 34px 18px}
+.bk-pricebar{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:12px;font-size:14px;color:var(--muet)}
+.bk-pricebar strong{font-family:'Cormorant Garamond',serif;font-size:24px;color:var(--encre);font-weight:600;white-space:nowrap}
+.bk-pricebar small{font-family:'Inter',sans-serif;font-size:12px;color:var(--muet);font-weight:500}
+.bk-nav{display:flex;justify-content:space-between;gap:12px}
+.bk-err{color:#B42318;font-size:13px;margin:12px 0 0;background:#FEF3F2;border:1px solid #FECDCA;padding:10px 12px;border-radius:10px}
+
+.bk-modal .field{margin-bottom:14px}
+
+@media (max-width:520px){
+  .bk-bg{padding:10px}
+  .bk-modal{max-height:96vh}
+  .bk-head{padding:22px 20px 0}
+  .bk-head h3{font-size:25px}
+  .bk-body{padding:12px 20px 16px}
+  .bk-foot{padding:12px 20px 16px}
+  .bk-choice{padding:12px 14px}
+  .bk-cost strong{font-size:22px}
+  .bk-modal .frow{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){.bk-bg.open,.bk-modal{animation:none}}
+
+/* Package (4 / 8 sessions paid upfront) */
+.bk-pkgh{margin-top:18px}
+.bk-pkgs{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:6px}
+.bk-pkg{display:flex;flex-direction:column;align-items:flex-start;gap:2px;background:#fff;border:1.5px solid var(--ligne);border-radius:13px;padding:13px 16px;cursor:pointer;text-align:left;font:inherit;color:inherit;transition:.22s;min-height:84px}
+.bk-pkg:hover{border-color:var(--or)}
+.bk-pkg[aria-pressed="true"]{border-color:var(--encre);background:rgba(18,35,63,.04);box-shadow:inset 0 0 0 1px var(--encre)}
+.bk-pkg b{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;color:var(--encre);line-height:1.15}
+.bk-pkg small{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--or);font-weight:600;min-height:15px}
+.bk-pkg strong{font-family:'Cormorant Garamond',serif;font-size:23px;color:var(--encre);font-weight:600;line-height:1.1;margin-top:2px}
+
+/* Pay-upfront notice, next steps, bank details */
+.bk-pay{background:rgba(194,154,75,.13);border:1px solid rgba(194,154,75,.55);border-left:4px solid var(--or);border-radius:12px;padding:14px 16px;margin:0 0 14px}
+.bk-pay>strong{display:block;color:var(--encre);font-size:15px;margin-bottom:4px}
+.bk-pay p{margin:6px 0 0;font-size:13px;color:var(--charbon);line-height:1.55}
+.bk-pay .bk-payamt{font-family:'Cormorant Garamond',serif;font-size:21px;font-weight:600;color:var(--encre);line-height:1.25}
+.bk-pay .bk-payintl{font-size:12.5px;color:var(--muet)}
+.bk-nexth{margin:16px 0 8px;font-size:15px;font-weight:600;color:var(--charbon);text-align:left}
+.bk-next{margin:0 0 14px;padding:0;list-style:none;counter-reset:bk;text-align:left}
+.bk-next li{counter-increment:bk;position:relative;padding:8px 0 8px 38px;font-size:14px;color:var(--charbon);line-height:1.5;border-bottom:1px solid var(--ligne)}
+.bk-next li:last-child{border-bottom:none}
+.bk-next li::before{content:counter(bk);position:absolute;left:0;top:7px;width:26px;height:26px;border-radius:50%;background:var(--encre);color:#fff;font-size:13px;font-weight:600;display:flex;align-items:center;justify-content:center}
+.bk-bank{background:#fff;border:1px solid var(--ligne);border-radius:13px;padding:14px 18px;text-align:left;font-size:14px;margin:0 0 14px}
+.bk-bank>b{display:block;color:var(--encre);margin-bottom:4px}
+.bk-bank p{margin:4px 0 8px;color:var(--muet);font-size:13px}
+.bk-bank div{display:flex;justify-content:space-between;gap:14px;padding:5px 0;color:var(--muet)}
+.bk-bank div b{color:var(--charbon);text-align:right;word-break:break-all}
+.bk-pricebar>span{display:flex;flex-direction:column;gap:1px;min-width:0}
+.bk-pricebar>span small{font-size:12px}
+.bk-actions .btn[disabled]{opacity:.65;cursor:progress}
+@media (max-width:520px){
+  .bk-pkg{padding:12px 12px}
+  .bk-pkg b{font-size:18px}.bk-pkg strong{font-size:21px}
+}
